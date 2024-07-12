@@ -1,9 +1,8 @@
-const App = (): JSX.Element => {
-    return (
-        <>
-            <h1>React TypeScript Webpack Starter Template</h1>
-        </>
-    );
+import { RouterProvider } from 'react-router-dom';
+import router from './router';
+
+const App = (): React.JSX.Element => {
+    return <RouterProvider router={router} />;
 };
 
 export default App;
