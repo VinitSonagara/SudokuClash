@@ -7,11 +7,12 @@ const HomePage = (): React.JSX.Element => {
 
     const onCreateBtnClick = async () => {
         const response = await axios.get('http://localhost:3000/create');
-        console.log({ response });
+        const {
+            data: { code },
+        } = response;
+        console.log({ code });
         const socket = io('http://localhost:3000');
-        socket.on('connection', () => {
-            console.log('Connected to server:', socket.id);
-        });
+        socket.emit('joinLobby', code);
     };
 
     const onJoinBtnClick = () => {
